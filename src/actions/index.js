@@ -113,7 +113,7 @@ export const remove = (id) => async (dispatch) => {
 
 export const empty = () => async (dispatch) => {
   try {
-    await axios.delete(`${BASEURL}/cart`);
+    await axios.patch(`${BASEURL}/cart`, { cart: [] });
     dispatch({ type: EMPTY });
   } catch (e) {
     console.error(e);

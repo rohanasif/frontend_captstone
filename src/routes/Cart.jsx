@@ -1,4 +1,4 @@
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Container } from "react-bootstrap";
 import NavBar from "../components/NavBar";
 import { useSelector, useDispatch } from "react-redux";
 import { remove, empty } from "../actions";
@@ -15,48 +15,55 @@ const Cart = () => {
   };
 
   const handleEmpty = () => {
-    dispatch(empty());
+    for (const item of cart) {
+      handleRemove(item.id);
+    }
   };
 
   return (
-    <div>
+    <>
       <NavBar />
-      <h2>Shopping Cart</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{item.name}</td>
-              <td>${item.price}</td>
-              <td>
-                <Button variant="danger" onClick={() => handleRemove(item.id)}>
-                  Remove
-                </Button>
-              </td>
+      <Container>
+        <h2>Shopping Cart</h2>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Remove</th>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan="2"></td>
-            <td>Total:</td>
-            <td>${calculateTotal()}</td>
-          </tr>
-        </tfoot>
-      </Table>
-      <Button variant="danger" onClick={() => handleEmpty()}>
-        Empty Cart
-      </Button>
-    </div>
+          </thead>
+          <tbody>
+            {cart.map((item, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{item.name}</td>
+                <td>${item.price}</td>
+                <td>
+                  <Button
+                    variant="danger"
+                    onClick={() => handleRemove(item.id)}
+                  >
+                    Remove
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="2"></td>
+              <td>Total:</td>
+              <td>${calculateTotal()}</td>
+            </tr>
+          </tfoot>
+        </Table>
+        <Button variant="danger" onClick={() => handleEmpty()}>
+          Empty Cart
+        </Button>
+      </Container>
+    </>
   );
 };
 
