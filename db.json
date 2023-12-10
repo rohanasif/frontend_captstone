@@ -1,3 +1,60 @@
 {
-  "users": []
+  "users": [],
+  "dishes": [
+    {
+      "name": "Chicken",
+      "description": "A chicken dish",
+      "price": "$20"
+    },
+    {
+      "name": "Beef",
+      "description": "A beef dish",
+      "price": "$22"
+    },
+    {
+      "name": "Shawarma",
+      "description": "A Shawarma dish",
+      "price": "$20"
+    },
+    {
+      "name": "Water",
+      "description": "A water bottle",
+      "price": "$4"
+    },
+    {
+      "name": "Juice",
+      "description": "A mixed juice",
+      "price": "$15"
+    },
+    {
+      "name": "Chicken Soup",
+      "description": "A chicken soup",
+      "price": "$20"
+    },
+    {
+      "name": "Fish",
+      "description": "A dish dish",
+      "price": "$10"
+    },
+    {
+      "name": "Burger",
+      "description": "A chicken burger",
+      "price": "$20"
+    },
+    {
+      "name": "Pizza",
+      "description": "A chicken pizza",
+      "price": "$25"
+    },
+    {
+      "name": "Icecream",
+      "description": "A scoop of icecream",
+      "price": "$5"
+    },
+    {
+      "name": "Soda",
+      "description": "A soda",
+      "price": "$6"
+    }
+  ]
 }

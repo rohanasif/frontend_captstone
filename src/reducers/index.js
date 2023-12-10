@@ -1,4 +1,4 @@
-const initialState = { users: [], message: "", dishes: [], cart: [] };
+const initialState = { users: [], message: "", dishes: [] };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
