@@ -1,5 +1,6 @@
 import axios from "axios";
-import BASEURL, {
+import {
+  BASEURL,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
   SIGNUP_ERROR,

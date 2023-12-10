@@ -6,7 +6,7 @@ import {
   LOGOUT_SUCCESS,
 } from "../constants";
 
-const initialState = { users: [], dishes: [] };
+const initialState = { users: [], dishes: [], message: "" };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -3,11 +3,30 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions";
 
 const NavBar = () => {
-  const loggedIn = false;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const allUsers = useSelector((state) => state.main.users);
+  const loggedInUser = allUsers.find((user) => user.isLoggedin);
+  const loggedIn = loggedInUser?.isLoggedin;
+  const handleLogout = async () => {
+    try {
+      if (loggedInUser) {
+        await dispatch(logout(loggedInUser));
+        alert("You are logged out!");
+        navigate("/login");
+      } else {
+        alert("No user is currently logged in.");
+      }
+    } catch (error) {
+      console.error("Logout failed: ", error);
+    }
+  };
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className="w-full flex justify-between">
@@ -23,7 +42,9 @@ const NavBar = () => {
               Home
             </Nav.Link>
             {loggedIn ? (
-              <button>Logout</button>
+              <button className="" onClick={() => handleLogout()}>
+                Logout
+              </button>
             ) : (
               <Nav.Link as={Link} to="/start">
                 Login/Signup
