@@ -104,8 +104,8 @@ export const add = (dish) => async (dispatch) => {
 
 export const remove = (id) => async (dispatch) => {
   try {
-    const response = await axios.delete(`${BASEURL}/cart/${id}`);
-    dispatch({ type: REMOVE, payload: response.data });
+    await axios.delete(`${BASEURL}/cart/${id}`);
+    dispatch({ type: REMOVE, payload: id });
   } catch (e) {
     console.error(e);
   }
@@ -113,8 +113,8 @@ export const remove = (id) => async (dispatch) => {
 
 export const empty = () => async (dispatch) => {
   try {
-    const response = await axios.delete(`${BASEURL}/cart`);
-    dispatch({ type: EMPTY, payload: response.data });
+    await axios.delete(`${BASEURL}/cart`);
+    dispatch({ type: EMPTY });
   } catch (e) {
     console.error(e);
   }

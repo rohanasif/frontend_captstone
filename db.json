@@ -8,26 +8,7 @@
       "isLoggedin": true
     }
   ],
-  "cart": [
-    {
-      "name": "Shawarma",
-      "description": "A Shawarma dish",
-      "price": "20",
-      "id": 3
-    },
-    {
-      "name": "Shawarma",
-      "description": "A Shawarma dish",
-      "price": "20",
-      "id": 4
-    },
-    {
-      "name": "Shawarma",
-      "description": "A Shawarma dish",
-      "price": "20",
-      "id": 5
-    }
-  ],
+  "cart": [],
   "dishes": [
     {
       "name": "Chicken",
