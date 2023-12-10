@@ -11,3 +11,5 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const ADD = "ADD";
 export const REMOVE = "REMOVE";
 export const EMPTY = "EMPTY";
+
+export const FETCH_DISHES = "FETCH_DISHES";

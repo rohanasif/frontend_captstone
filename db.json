@@ -1,13 +1,5 @@
 {
-  "users": [
-    {
-      "name": "rohanasif",
-      "email": "r2@y.com",
-      "password": "1",
-      "id": 1,
-      "isLoggedin": false
-    }
-  ],
+  "users": [],
   "dishes": [
     {
       "name": "Chicken",

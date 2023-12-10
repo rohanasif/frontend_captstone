@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   BASEURL,
+  FETCH_DISHES,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
   SIGNUP_ERROR,
@@ -73,6 +74,17 @@ export const logout = (user) => async (dispatch) => {
       isLoggedin: false,
     });
     dispatch({ type: LOGOUT_SUCCESS, payload: response.data });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const getDishes = () => async (dispatch) => {
+  try {
+    const response = await axios.get(`${BASEURL}/dishes`);
+    const dishes = response.data;
+    dispatch({ type: FETCH_DISHES, payload: dishes });
+    return dishes;
   } catch (e) {
     console.error(e);
   }

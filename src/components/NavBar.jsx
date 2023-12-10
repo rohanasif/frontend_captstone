@@ -14,6 +14,7 @@ const NavBar = () => {
   const allUsers = useSelector((state) => state.main.users);
   const loggedInUser = allUsers.find((user) => user.isLoggedin);
   const loggedIn = loggedInUser?.isLoggedin;
+  const cart = useSelector((state) => state.main.cart);
   const handleLogout = async () => {
     try {
       if (loggedInUser) {
@@ -52,7 +53,7 @@ const NavBar = () => {
             )}
             <Nav.Link as={Link} to="/cart">
               <FontAwesomeIcon icon={faCartShopping} />
-              {}
+              {cart.length}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

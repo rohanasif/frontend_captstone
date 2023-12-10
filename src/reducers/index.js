@@ -4,9 +4,10 @@ import {
   SIGNUP_ERROR,
   SIGNUP_SUCCESS,
   LOGOUT_SUCCESS,
+  FETCH_DISHES,
 } from "../constants";
 
-const initialState = { users: [], dishes: [], message: "" };
+const initialState = { users: [], dishes: [], cart: [] };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -35,6 +36,12 @@ const rootReducer = (state = initialState, action) => {
         users: state.users.map((user) =>
           user.id === action.payload.id ? { ...user, isLoggedin: false } : user
         ),
+      };
+
+    case FETCH_DISHES:
+      return {
+        ...state,
+        dishes: action.payload,
       };
     default:
       return state;
