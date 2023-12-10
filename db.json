@@ -1,5 +1,13 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "rohanasif",
+      "email": "r2@y.com",
+      "password": "1",
+      "id": 1,
+      "isLoggedin": true
+    }
+  ],
   "dishes": [
     {
       "name": "Chicken",
@@ -55,6 +63,14 @@
       "name": "Soda",
       "description": "A soda",
       "price": "$6"
+    }
+  ],
+  "cart": [
+    {
+      "name": "Chicken",
+      "description": "A chicken dish",
+      "price": "$20",
+      "id": 1
     }
   ]
 }

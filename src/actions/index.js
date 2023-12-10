@@ -6,6 +6,9 @@ import {
   LOGOUT_SUCCESS,
   SIGNUP_ERROR,
   SIGNUP_SUCCESS,
+  ADD,
+  REMOVE,
+  EMPTY,
 } from "../constants";
 
 export const getUsers = () => async () => {
@@ -85,6 +88,33 @@ export const getDishes = () => async (dispatch) => {
     const dishes = response.data;
     dispatch({ type: FETCH_DISHES, payload: dishes });
     return dishes;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const add = (dish) => async (dispatch) => {
+  try {
+    const response = await axios.post(`${BASEURL}/cart`, dish);
+    dispatch({ type: ADD, payload: response.data });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const remove = (id) => async (dispatch) => {
+  try {
+    const response = await axios.delete(`${BASEURL}/cart/${id}`);
+    dispatch({ type: REMOVE, payload: response.data });
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const empty = () => async (dispatch) => {
+  try {
+    const response = await axios.delete(`${BASEURL}/cart`);
+    dispatch({ type: EMPTY, payload: response.data });
   } catch (e) {
     console.error(e);
   }

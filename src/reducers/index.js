@@ -5,6 +5,9 @@ import {
   SIGNUP_SUCCESS,
   LOGOUT_SUCCESS,
   FETCH_DISHES,
+  ADD,
+  REMOVE,
+  EMPTY,
 } from "../constants";
 
 const initialState = { users: [], dishes: [], cart: [] };
@@ -37,11 +40,25 @@ const rootReducer = (state = initialState, action) => {
           user.id === action.payload.id ? { ...user, isLoggedin: false } : user
         ),
       };
-
     case FETCH_DISHES:
       return {
         ...state,
         dishes: action.payload,
+      };
+    case ADD:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+    case REMOVE:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+    case EMPTY:
+      return {
+        ...state,
+        cart: [],
       };
     default:
       return state;

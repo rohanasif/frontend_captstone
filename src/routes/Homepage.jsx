@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
 import { Container, Row, Card, Button } from "react-bootstrap";
-import { getDishes } from "../actions";
+import { getDishes, add } from "../actions";
 import { useEffect } from "react";
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -10,8 +10,8 @@ const Homepage = () => {
     dispatch(getDishes());
   }, [dispatch]);
 
-  const addToCart = (i) => {
-    dispatch(addToCart(i));
+  const addToCart = (item) => {
+    dispatch(add(item));
   };
   return (
     <div>
@@ -24,7 +24,7 @@ const Homepage = () => {
               <Card.Body>
                 <Card.Title>{dish.name}</Card.Title>
                 <Card.Text>{dish.description}</Card.Text>
-                <Button variant="primary" onClick={() => addToCart()}>
+                <Button variant="success" onClick={() => addToCart(dish)}>
                   Add to Cart
                 </Button>
               </Card.Body>
